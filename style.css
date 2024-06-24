@@ -18,21 +18,13 @@ body{
 main{
 	display: flex;
 	position: relative;
-	width: 80%;
-	height: 50%;
+	overflow: hidden;
 	background-color: rgba(255, 255, 255, 0.35);
 	box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
 	border-radius: 10px;
-	overflow: auto;
-	justify-content: space-around;
-
-}
-
-.btn {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	cursor: pointer;
+	width: 50rem;
+	height: 30rem;
+	justify-content: center;
 }
 
 .player{
@@ -40,30 +32,72 @@ main{
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 8rem;
+	gap: 6rem;
+	padding: 6rem;
+	flex: 1;
 }
-
-.headings, .paragraphs{
+.totalScore, .currentScore{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	gap: 1rem;
 }
-.headings{
+.totalScore{
 	font-size: 1.7rem;
-	font-weight: lighter;
-	& .heading2{
-		color: #bf2e34;
-		font-size: 5rem;
+	& .playerHeading{
+		font-weight: normal;
+		word-spacing: 0.5rem;
 	}
-
+	& .playerTotalScore{
+		color: #cb375a;
+		font-size: 4rem;
+		font-weight: normal;
+	}
 }
-
-.paragraphs{
-	background-color: #ce4364;
+.currentScore{
+	background-color: #cb375a;
 	padding: 1rem 1.5rem;
 	border-radius: 0.5rem;
 	color: white;
 	font-size: 1.5rem;
+	& .playerCurrentScore{
+		font-size: 2rem;
+	}
+}
+
+.btn{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	cursor: pointer;
+	font-size: 1rem;
+	border-radius: 1rem;
+	border: none;
+	padding: 0.4rem 0.8rem;
+	opacity: 70%;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-new{
+	top: 2rem;
+}
+.btn-roll{
+	top: 19rem;
+}
+.btn-hold{
+	top: 23rem;
+}
+
+.player--active {
+	background-color: rgba(255, 255, 255, 0.4);
+	font-weight: bolder;
+}
+
+.playerHeading{
+	font-weight: bolder;
+}
+
+.currentScore{
+	opacity: 50%;
 }
