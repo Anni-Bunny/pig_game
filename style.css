@@ -35,33 +35,35 @@ main{
 	gap: 6rem;
 	padding: 6rem;
 	flex: 1;
+	transition: 0.3s;
 }
-.totalScore, .currentScore{
+.total, .current{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	gap: 1rem;
 }
-.totalScore{
+.total{
 	font-size: 1.7rem;
 	& .playerHeading{
 		font-weight: normal;
 		word-spacing: 0.5rem;
 	}
-	& .playerTotalScore{
+	& .totalScore{
 		color: #cb375a;
 		font-size: 4rem;
 		font-weight: normal;
 	}
 }
-.currentScore{
+.current{
 	background-color: #cb375a;
-	padding: 1rem 1.5rem;
+	padding: 1rem 2rem;
 	border-radius: 0.5rem;
 	color: white;
 	font-size: 1.5rem;
-	& .playerCurrentScore{
+	opacity: 60%;
+	& .currentScore{
 		font-size: 2rem;
 	}
 }
@@ -79,6 +81,7 @@ main{
 	background-color: rgba(255, 255, 255, 0.9);
 }
 
+
 .btn-new{
 	top: 2rem;
 }
@@ -89,15 +92,29 @@ main{
 	top: 23rem;
 }
 
-.player--active {
+
+.player-active {
 	background-color: rgba(255, 255, 255, 0.4);
 	font-weight: bolder;
 }
 
-.playerHeading{
+.playerChangedHeading{
 	font-weight: bolder;
 }
 
-.currentScore{
-	opacity: 50%;
+.currentActive{
+	opacity: 100%;
+}
+
+.dice{
+	position: absolute;
+	left: 50%;
+	bottom: 50%;
+	transform: translate(-50%);
+	height: 5rem;
+	box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+
+.hidden{
+	display: none;
 }

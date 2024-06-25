@@ -7,29 +7,30 @@
 </head>
 <body>
 <main>
-    <section class="player">
-        <div class="totalScore">
+    <section class="player" id="player-1">
+        <div class="total">
             <h2 class="playerHeading">PLAYER 1</h2>
-            <h1 class="playerTotalScore">0</h1>
+            <h1 class="totalScore" id="totalScore-1">0</h1>
         </div>
-        <div class="currentScore">
-            <p class="current">CURRENT</p>
-            <p class="playerCurrentScore">0</p>
+        <div class="current">
+            <p>CURRENT</p>
+            <p class="currentScore" id="currentScore-1">0</p>
         </div>
     </section>
-    <section class="player">
-        <div class="totalScore">
+    <section class="player" id="player-2">
+        <div class="total">
             <h2 class="playerHeading">PLAYER 2</h2>
-            <h1 class="playerTotalScore">0</h1>
+            <h1 class="totalScore" id="totalScore-2">0</h1>
         </div>
-        <div class="currentScore">
-            <p class="current">CURRENT</p>
-            <p class="playerCurrentScore">0</p>
+        <div class="current">
+            <p>CURRENT</p>
+            <p class="currentScore" id="currentScore-2">0</p>
         </div>
     </section>
-    <button class="btn btn-new">🔄️ NEW GAME</button>
-    <button class="btn btn-roll">🎲 ROLL DICE</button>
-    <button class="btn btn-hold">📥 HOLD</button>
+    <img src="images/dice-5.png" alt="dice" class="dice" id="dice">
+    <button class="btn btn-new" id="btn-new">🔄️ NEW GAME</button>
+    <button class="btn btn-roll" id="btn-roll">🎲 ROLL DICE</button>
+    <button class="btn btn-hold" id="btn-hold">📥 HOLD</button>
 </main>
 <script src="script.js"></script>
 </body>
