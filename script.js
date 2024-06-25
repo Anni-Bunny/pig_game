@@ -20,9 +20,13 @@ const p2 = {
     currentScore: 0
 }
 
+let currentPlayer = 1;
+
+
 function changePlayer(){
     playerDiv1.classList.toggle('player-active')
     playerDiv2.classList.toggle('player-active')
+    currentPlayer = currentPlayer === 1 ? 2 : 1;
 }
 
 function start(){
