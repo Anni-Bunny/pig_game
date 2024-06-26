@@ -13,24 +13,55 @@ const dice = document.getElementById('dice');
 
 const p1 = {
     totalScore: 0,
-    currentScore: 0
+    currentScore: 0,
+    currentScoreEl: currentScoreEl1,
+    totalScoreEl: totalScoreEl1
 }
 const p2 = {
     totalScore: 0,
-    currentScore: 0
+    currentScore: 0,
+    currentScoreEl: currentScoreEl2,
+    totalScoreEl: totalScoreEl2
 }
 
-let currentPlayer = 1;
+let currentPlayerId = 1;
 
 
-function changePlayer(){
+function changePlayer() {
     playerDiv1.classList.toggle('player-active')
     playerDiv2.classList.toggle('player-active')
-    currentPlayer = currentPlayer === 1 ? 2 : 1;
+    currentPlayerId = currentPlayerId === 1 ? 2 : 1;
+    p1.currentScore = 0;
+    p2.currentScore = 0;
 }
 
-function start(){
-    dice.classList.add('hidden');
+function rollTheDice() {
+    return Math.ceil(Math.random() * 6);
+}
+
+function showTheDice(diceNumber) {
+    dice.src = `images/dice-${diceNumber}.png`;
+    dice.classList.remove('hidden');
+}
+
+function addToCurrentScore(player, diceNumber) {
+    //const currentPlayer = currentPlayerId === 1 ? p1 : p2;
+    player.currentScore += diceNumber;
+}
+function showCurrentScore(player){
+    player.currentScoreEl.textContent = player.currentScore;
+}
+function addToTotalScore(player){
+    player.totalScore += player.currentScore
+}
+function  showTotalScore(player){
+    player.totalScoreEl.textContent = player.totalScore;
+}
+
+
+
+
+function start() {
     playerDiv1.classList.add('player-active')
 
     currentScoreEl1.textContent = 0;
@@ -38,8 +69,10 @@ function start(){
     totalScoreEl1.textContent = 0;
     totalScoreEl2.textContent = 0;
 }
+
 start();
 
+/*
 
 btnRoll.addEventListener('click', function () {
     const diceNumber = Math.ceil(Math.random() * 6)
@@ -51,4 +84,4 @@ btnRoll.addEventListener('click', function () {
         playerDiv1.classList.remove('player-active');
         playerDiv2.classList.add('player-active')
     }
-})
+})*/
