@@ -130,11 +130,11 @@ main {
 	background-color: rgb(122, 168, 112);
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 450px) {
 	main {
 		display: flex;
 		flex-direction: column;
-		height: 100vh;
+		height: 100dvh;
 		border-radius: 0;
 	}
 	.player {
@@ -159,15 +159,18 @@ main {
 	}
 
 	.btn-roll {
-		top: 19.7rem;
+		top: 48%;
+		left: 23%;
 	}
 
 	.btn-hold {
-		top: 26rem;
+		top: 48%;
+		left: 77%;
 	}
 	.dice{
-		bottom: 46.5%;
-		height: 3rem;
+		bottom: 50%;
+		transform: translate(-50%, 50%);
+		height: 4rem;
 	}
 	.btn {
 		font-size: 0.9rem;
