@@ -45,7 +45,6 @@ function showTheDice(diceNumber) {
 }
 
 function addToCurrentScore(player, diceNumber) {
-    //const currentPlayer = currentPlayerId === 1 ? p1 : p2;
     player.currentScore += diceNumber;
 }
 function showCurrentScore(player){
@@ -58,30 +57,21 @@ function  showTotalScore(player){
     player.totalScoreEl.textContent = player.totalScore;
 }
 
-
-
-
-function start() {
-    playerDiv1.classList.add('player-active')
-
-    currentScoreEl1.textContent = 0;
-    currentScoreEl2.textContent = 0;
-    totalScoreEl1.textContent = 0;
-    totalScoreEl2.textContent = 0;
+function handleRollClick(){
+    const currentPlayer = currentPlayerId === 1 ? p1 : p2;
+    const currentRoll = rollTheDice();
+    showTheDice(currentRoll);
+    addToCurrentScore(currentPlayer, currentRoll);
+    showCurrentScore(currentPlayer);
+    if (currentRoll === 1){
+        changePlayer();
+        showCurrentScore(currentPlayer);
+    }
 }
 
-start();
+btnRoll.addEventListener('click', handleRollClick);
 
-/*
 
-btnRoll.addEventListener('click', function () {
-    const diceNumber = Math.ceil(Math.random() * 6)
-    dice.src = `images/dice-${diceNumber}.png`;
-    dice.classList.remove('hidden');
-    currentScoreEl1.textContent = Number(currentScoreEl1.textContent) + diceNumber;
-    if (diceNumber === 1){
-        currentScoreEl1.textContent = 0;
-        playerDiv1.classList.remove('player-active');
-        playerDiv2.classList.add('player-active')
-    }
-})*/
+
+
+
