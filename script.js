@@ -33,6 +33,8 @@ function changePlayer() {
     currentPlayerId = currentPlayerId === 1 ? 2 : 1;
     p1.currentScore = 0;
     p2.currentScore = 0;
+    showCurrentScore(p1);
+    showCurrentScore(p2);
 }
 
 function rollTheDice() {
@@ -47,30 +49,41 @@ function showTheDice(diceNumber) {
 function addToCurrentScore(player, diceNumber) {
     player.currentScore += diceNumber;
 }
-function showCurrentScore(player){
+
+function showCurrentScore(player) {
     player.currentScoreEl.textContent = player.currentScore;
 }
-function addToTotalScore(player){
+
+function addToTotalScore(player) {
     player.totalScore += player.currentScore
 }
-function  showTotalScore(player){
+
+function showTotalScore(player) {
     player.totalScoreEl.textContent = player.totalScore;
 }
 
-function handleRollClick(){
+function handleRollClick() {
     const currentPlayer = currentPlayerId === 1 ? p1 : p2;
     const currentRoll = rollTheDice();
     showTheDice(currentRoll);
     addToCurrentScore(currentPlayer, currentRoll);
     showCurrentScore(currentPlayer);
-    if (currentRoll === 1){
+    if (currentRoll === 1) {
         changePlayer();
         showCurrentScore(currentPlayer);
     }
 }
 
-btnRoll.addEventListener('click', handleRollClick);
+function handleHoldClick() {
+    const currentPlayer = currentPlayerId === 1 ? p1 : p2;
+    addToTotalScore(currentPlayer);
+    showTotalScore(currentPlayer);
+    changePlayer();
+}
 
+
+btnRoll.addEventListener('click', handleRollClick);
+btnHold.addEventListener('click', handleHoldClick)
 
 
 
