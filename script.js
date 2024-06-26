@@ -15,13 +15,15 @@ const p1 = {
     totalScore: 0,
     currentScore: 0,
     currentScoreEl: currentScoreEl1,
-    totalScoreEl: totalScoreEl1
+    totalScoreEl: totalScoreEl1,
+    playerDiv: playerDiv1
 }
 const p2 = {
     totalScore: 0,
     currentScore: 0,
     currentScoreEl: currentScoreEl2,
-    totalScoreEl: totalScoreEl2
+    totalScoreEl: totalScoreEl2,
+    playerDiv: playerDiv2
 }
 
 let currentPlayerId = 1;
@@ -66,6 +68,10 @@ function clearScores() {
     location.reload();
 }
 
+function playerWon(player) {
+    return player.totalScore >= 100;
+}
+
 function handleRollClick() {
     const currentPlayer = currentPlayerId === 1 ? p1 : p2;
     const currentRoll = rollTheDice();
@@ -83,6 +89,11 @@ function handleHoldClick() {
     addToTotalScore(currentPlayer);
     showTotalScore(currentPlayer);
     changePlayer();
+    if (playerWon(currentPlayer)) {
+        currentPlayer.playerDiv.classList.add('winner-player');
+        btnRoll.disabled = true;
+        btnHold.disabled = true;
+    }
 }
 
 btnRoll.addEventListener('click', handleRollClick);
