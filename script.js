@@ -62,6 +62,10 @@ function showTotalScore(player) {
     player.totalScoreEl.textContent = player.totalScore;
 }
 
+function clearScores() {
+    location.reload();
+}
+
 function handleRollClick() {
     const currentPlayer = currentPlayerId === 1 ? p1 : p2;
     const currentRoll = rollTheDice();
@@ -81,10 +85,9 @@ function handleHoldClick() {
     changePlayer();
 }
 
-
 btnRoll.addEventListener('click', handleRollClick);
 btnHold.addEventListener('click', handleHoldClick)
-
+btnNew.addEventListener('click', clearScores);
 
 
 
